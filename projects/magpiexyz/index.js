@@ -6,6 +6,9 @@ async function tvl(timestamp, block, chainBlocks) {
   const balances = {};
   for(let i = 0, l = POOL_LIST.length; i < l; i++) {
     const pool = POOL_LIST[i];
+    if (pool.poolId == 6) {
+      continue;
+    }
     const collateralBalance = (await sdk.api.abi.call({
         abi: 'erc20:balanceOf',
         chain: 'bsc',
