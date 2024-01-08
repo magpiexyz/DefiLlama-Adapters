@@ -1,7 +1,8 @@
 // const ADDRESSES = require('../helper/coreAssets.json')
 // const sdk = require('@defillama/sdk')
 // const { staking } = require('../helper/staking')
-// const PancakePool = require("./abis/pancakeV3Pool.json")
+const ERC20ABI = require("./abis/ERC20.json")
+const ethers = require('ethers')
 const pancakesdk = require("@pancakeswap/v3-sdk");
 const fetchAllTokenPrice = require('./getTokenPrice.js');
 const CakepieReaderAbi = require("./abis/CakepieReader.json");
@@ -165,7 +166,8 @@ async function getV3PoolInfo(
   V3poolInfo,
   PancakeStaking,
   masterChefV3,
-  pancakeV3Helper
+  pancakeV3Helper,
+  v3FARM_BOOSTER
 ) {
   var cakepiePool = {};
   cakepiePool.poolAddress = V3poolInfo.poolAddress;
@@ -189,62 +191,71 @@ async function getV3PoolInfo(
   v3PoolInfo.token0 = await getERC20TokenInfo(api, token0);
   v3PoolInfo.token1 = await getERC20TokenInfo(api, token1);
   if (v3PoolInfo.token0.tokenAddress == WETHToken) {
-      v3PoolInfo.token0.isNative = true;
+    v3PoolInfo.token0.isNative = true;
   }
   if (v3PoolInfo.token1.tokenAddress == WETHToken) {
-      v3PoolInfo.token1.isNative = true;
+    v3PoolInfo.token1.isNative = true;
   }
   v3PoolInfo.pid = pid;
-  // V3PoolSlot0 memory slot0;
-  // (slot0.sqrtPriceX96, slot0.tick, slot0.observationIndex, slot0.observationCardinality, slot0.observationCardinalityNext, slot0.feeProtocol, slot0.unlocked) = IPancakeV3PoolReader(V3poolInfo.poolAddress).slot0();
-  // v3PoolInfo.slot0 = slot0;
-  // v3PoolInfo.fee = IPancakeV3PoolReader(V3poolInfo.poolAddress).fee();
-  // v3PoolInfo.liquidity = IPancakeV3PoolReader(V3poolInfo.poolAddress).liquidity();
-  // v3PoolInfo.lmPool = IPancakeV3PoolReader(V3poolInfo.poolAddress).lmPool();
-  // v3PoolInfo.lmLiquidity = IPancakeV3LmPoolReader(v3PoolInfo.lmPool).lmLiquidity(); 
-  // v3PoolInfo.farmCanBoost = IFarmBoosterReader(v3FARM_BOOSTER).whiteList(pid);
-  // cakepiePool.v3PoolInfo = v3PoolInfo;
-  // if (PancakeStaking != address(0)) {
-  //     cakepiePool.v3AccountInfo = getV3AccountInfo(cakepiePool, PancakeStaking);
-  // }
+  var slot0 = {}
+  var slot = await api.call({ abi: CakepieReaderAbi.slot0, target: V3poolInfo.poolAddress});
+  slot0.sqrtPriceX96 = slot.sqrtPriceX96
+  slot0.tick = slot.tick
+  slot0.observationIndex = slot.observationIndex
+  slot0.observationCardinality = slot.observationCardinality
+  slot0.observationCardinalityNext = slot.observationCardinalityNext
+  slot0.feeProtocol = slot.feeProtocol
+  slot0.unlocked = slot.unlocked;
+  v3PoolInfo.slot0 = slot0;
+  v3PoolInfo.fee = await api.call({ abi: CakepieReaderAbi.fee, target: V3poolInfo.poolAddress});
+  v3PoolInfo.liquidity = await api.call({ abi: CakepieReaderAbi.liquidity, target: V3poolInfo.poolAddress});
+  v3PoolInfo.lmPool = await api.call({ abi: CakepieReaderAbi.lmPool, target: V3poolInfo.poolAddress});
+  v3PoolInfo.lmLiquidity = await api.call({ abi: CakepieReaderAbi.lmLiquidity, target: v3PoolInfo.lmPool});
+  v3PoolInfo.farmCanBoost = await api.call({ abi: CakepieReaderAbi.whiteList, target: v3FARM_BOOSTER, params:pid});
+  cakepiePool.v3PoolInfo = v3PoolInfo;
+  cakepiePool.v3AccountInfo = await getV3AccountInfo(api,cakepiePool, PancakeStaking);
   return cakepiePool;
 }
 
-// function getV3AccountInfo(
-//   CakepiePool memory pool,
-//   address PancakeStaking
-// ) public view returns (V3AccountInfo memory) {
-//   V3AccountInfo memory v3Info;
-//   address token0 = pool.v3PoolInfo.token0.tokenAddress;
-//   address token1 = pool.v3PoolInfo.token1.tokenAddress;
-//   if (pool.v3PoolInfo.token0.isNative == true) {
-//       v3Info.token0Balance = PancakeStaking.balance;
-//       v3Info.token0V3HelperAllowance = type(uint256).max;
-//   } else {
-//       v3Info.token0Balance = IERC20(token0).balanceOf(PancakeStaking);
-//       v3Info.token0V3HelperAllowance = IERC20(token0).allowance(PancakeStaking, pool.helper);
-//   }
-//   if (pool.v3PoolInfo.token1.isNative == true) {
-//       v3Info.token1Balance = PancakeStaking.balance;
-//       v3Info.token1V3HelperAllowance = type(uint256).max;
-//   } else {
-//       v3Info.token1Balance = IERC20(token1).balanceOf(PancakeStaking);
-//       v3Info.token1V3HelperAllowance = IERC20(token1).allowance(PancakeStaking, pool.helper);
-//   }
-//   return v3Info;
-// }
+async function getV3AccountInfo(
+  api,
+  pool,
+  PancakeStaking
+){
+  var v3Info = {};
+  var token0 = pool.v3PoolInfo.token0.tokenAddress;
+  var token1 = pool.v3PoolInfo.token1.tokenAddress;
+  if (pool.v3PoolInfo.token0.isNative == true) {
+      v3Info.token0Balance = PancakeStaking.balance;
+      v3Info.token0V3HelperAllowance = ethers.MaxUint256;
+  } else {
+    v3Info.token0Balance = await api.call({ abi: ERC20ABI.balanceOf, target: token0, params: PancakeStaking});
+    v3Info.token0V3HelperAllowance = await api.call({ abi: ERC20ABI.allowance, target: token0, params: [PancakeStaking,pool.helper]});
+  }
+  if (pool.v3PoolInfo.token1.isNative == true) {
+      v3Info.token1Balance = PancakeStaking.balance;
+      v3Info.token1V3HelperAllowance = ethers.MaxUint256;
+  } else {
+      v3Info.token1Balance = await api.call({ abi: ERC20ABI.balanceOf, target: token1, params: PancakeStaking});
+      v3Info.token1V3HelperAllowance = await api.call({ abi: ERC20ABI.allowance, target: token1, params: [PancakeStaking,pool.helper]});
+  }
+  return v3Info;
+}
 
 
-async function getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper) {
-  let pools = await api.fetchList({ lengthAbi: CakepieReaderAbi.poolLength, itemAbi: CakepieReaderAbi.poolList, target: PancakeStaking })
-  let poolsInfo = await api.multiCall({ abi: CakepieReaderAbi.pools, calls: pools, target: PancakeStaking })
-  for (var i = 0; i < pools.length; i++) {
+async function getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper,v3FARM_BOOSTER) {
+  let poolsAdd = await api.fetchList({ lengthAbi: CakepieReaderAbi.poolLength, itemAbi: CakepieReaderAbi.poolList, target: PancakeStaking })
+  let poolsInfo = await api.multiCall({ abi: CakepieReaderAbi.pools, calls: poolsAdd, target: PancakeStaking })
+  let pools = [];
+  for (var i = 0; i < poolsAdd.length; i++) {
+    let pool;
     if (poolsInfo[i].poolType == 1) {
-      await getV3PoolInfo(api, poolsInfo[i], PancakeStaking, masterChefV3, pancakeV3Helper);
+      pool = await getV3PoolInfo(api, poolsInfo[i], PancakeStaking, masterChefV3, pancakeV3Helper,v3FARM_BOOSTER);
     } else if (poolsInfo[i].poolType == 2 || poolsInfo[i].poolType == 3) {
-      await getV2LikePoolInfo(poolsInfo[i], PancakeStaking);
+      pool = await getV2LikePoolInfo(poolsInfo[i], PancakeStaking);
     }
-    await fetchTVLFromSubgraph(PancakeStaking, pools[i], poolsInfo[i])
+    pools.push(pool);
+    await fetchTVLFromSubgraph(PancakeStaking, poolsAdd[i], poolsInfo[i])
   }
   return pools
 }
@@ -255,8 +266,9 @@ async function tvl(timestamp, block, chainBlocks, { api }) {
   WETHToken = await api.call({ abi: CakepieReaderAbi.weth, target: CakepieReader })
   const masterChefV3 = await api.call({ abi: CakepieReaderAbi.masterChefv3, target: CakepieReader })
   const pancakeV3Helper = await api.call({ abi: CakepieReaderAbi.pancakeV3Helper, target: CakepieReader })
-  const data = await getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper);
-  console.log("xxx");
+  const v3FARM_BOOSTER = await api.call({ abi: CakepieReaderAbi.v3FARM_BOOSTER, target: CakepieReader })
+  const data = await getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper,v3FARM_BOOSTER);
+  console.log("xxx",data);
 
   //   const [poolTokens, depositTokens] = await getPoolList(api, MasterCakepieAddress, MCakeAddress, MCakeSVAddress, PancakeStaking);
   //   console.log(depositTokens)
