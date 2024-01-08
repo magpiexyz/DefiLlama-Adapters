@@ -1,0 +1,4678 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "AMLType",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "V2Type",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "V3Type",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "WETHToken",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "__CakepieReader_init",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cake",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cakepieOFT",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pancakeStaking",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_masterChefV3",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_mCakeConvertor",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_totalpfee",
+        "type": "uint16"
+      }
+    ],
+    "name": "config",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getCakepieInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "masterCakepie",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "pancakeStaking",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "cakepieOFT",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "CAKE",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "nonFungiblePositionManager",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "mCakeConvertor",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "masterChefV3",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "poolId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "poolAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "depositToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "depositTokenBalance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "receiptToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastRewardTimestamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "CKPemission",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalStaked",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "helper",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "rewarder",
+                "type": "address"
+              },
+              {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "poolType",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastHarvestTime",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "depositTokenInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint256",
+                        "name": "pendingCakepie",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "address[]",
+                        "name": "bonusTokenAddresses",
+                        "type": "address[]"
+                      },
+                      {
+                        "internalType": "string[]",
+                        "name": "bonusTokenSymbols",
+                        "type": "string[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusRewards",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusDecimals",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "masterChefV3PendingCakepie",
+                        "type": "uint256"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.RewardInfo",
+                    "name": "rewardInfo",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakedAmount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakingAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V2LikeAccountInfo",
+                "name": "accountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "token0Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token0V3HelperAllowance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1V3HelperAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3AccountInfo",
+                "name": "v3AccountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pid",
+                    "type": "uint256"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token0",
+                    "type": "tuple"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token1",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalBoostLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "allocPoint",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "v3Pool",
+                    "type": "address"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint160",
+                        "name": "sqrtPriceX96",
+                        "type": "uint160"
+                      },
+                      {
+                        "internalType": "int24",
+                        "name": "tick",
+                        "type": "int24"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationIndex",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinality",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinalityNext",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint32",
+                        "name": "feeProtocol",
+                        "type": "uint32"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "unlocked",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.V3PoolSlot0",
+                    "name": "slot0",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "lmPool",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "lmLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "farmCanBoost",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolInfo",
+                "name": "v3PoolInfo",
+                "type": "tuple"
+              }
+            ],
+            "internalType": "struct CakepieReader.CakepiePool[]",
+            "name": "pools",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "poolId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "poolAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "depositToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "depositTokenBalance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "receiptToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastRewardTimestamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "CKPemission",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalStaked",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "helper",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "rewarder",
+                "type": "address"
+              },
+              {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "poolType",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastHarvestTime",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "depositTokenInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint256",
+                        "name": "pendingCakepie",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "address[]",
+                        "name": "bonusTokenAddresses",
+                        "type": "address[]"
+                      },
+                      {
+                        "internalType": "string[]",
+                        "name": "bonusTokenSymbols",
+                        "type": "string[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusRewards",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusDecimals",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "masterChefV3PendingCakepie",
+                        "type": "uint256"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.RewardInfo",
+                    "name": "rewardInfo",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakedAmount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakingAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V2LikeAccountInfo",
+                "name": "accountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "token0Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token0V3HelperAllowance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1V3HelperAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3AccountInfo",
+                "name": "v3AccountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pid",
+                    "type": "uint256"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token0",
+                    "type": "tuple"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token1",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalBoostLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "allocPoint",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "v3Pool",
+                    "type": "address"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint160",
+                        "name": "sqrtPriceX96",
+                        "type": "uint160"
+                      },
+                      {
+                        "internalType": "int24",
+                        "name": "tick",
+                        "type": "int24"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationIndex",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinality",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinalityNext",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint32",
+                        "name": "feeProtocol",
+                        "type": "uint32"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "unlocked",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.V3PoolSlot0",
+                    "name": "slot0",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "lmPool",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "lmLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "farmCanBoost",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolInfo",
+                "name": "v3PoolInfo",
+                "type": "tuple"
+              }
+            ],
+            "internalType": "struct CakepieReader.CakepiePool",
+            "name": "mCakePool",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "poolId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "poolAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "depositToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "depositTokenBalance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "receiptToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastRewardTimestamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "CKPemission",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalStaked",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "helper",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "rewarder",
+                "type": "address"
+              },
+              {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "poolType",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastHarvestTime",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "depositTokenInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint256",
+                        "name": "pendingCakepie",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "address[]",
+                        "name": "bonusTokenAddresses",
+                        "type": "address[]"
+                      },
+                      {
+                        "internalType": "string[]",
+                        "name": "bonusTokenSymbols",
+                        "type": "string[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusRewards",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256[]",
+                        "name": "pendingBonusDecimals",
+                        "type": "uint256[]"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "masterChefV3PendingCakepie",
+                        "type": "uint256"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.RewardInfo",
+                    "name": "rewardInfo",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakedAmount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "stakingAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V2LikeAccountInfo",
+                "name": "accountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "token0Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1Balance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token0V3HelperAllowance",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "token1V3HelperAllowance",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3AccountInfo",
+                "name": "v3AccountInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pid",
+                    "type": "uint256"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token0",
+                    "type": "tuple"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "symbol",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "decimals",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "isNative",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.ERC20TokenInfo",
+                    "name": "token1",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalBoostLiquidity",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "allocPoint",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "v3Pool",
+                    "type": "address"
+                  },
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint160",
+                        "name": "sqrtPriceX96",
+                        "type": "uint160"
+                      },
+                      {
+                        "internalType": "int24",
+                        "name": "tick",
+                        "type": "int24"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationIndex",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinality",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint16",
+                        "name": "observationCardinalityNext",
+                        "type": "uint16"
+                      },
+                      {
+                        "internalType": "uint32",
+                        "name": "feeProtocol",
+                        "type": "uint32"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "unlocked",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct CakepieReader.V3PoolSlot0",
+                    "name": "slot0",
+                    "type": "tuple"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "lmPool",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "lmLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "farmCanBoost",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolInfo",
+                "name": "v3PoolInfo",
+                "type": "tuple"
+              }
+            ],
+            "internalType": "struct CakepieReader.CakepiePool",
+            "name": "mCakeSVPool",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isApprovedStake",
+                "type": "bool"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "token0",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "token1",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickLower",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickUpper",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside0LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside1LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed0",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed1",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "boostLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "boostMultiplier",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.TokenIdPosition",
+                "name": "position",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken0",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken1",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.EarnedFeeInfo",
+                "name": "earnedFeeInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "address",
+                "name": "pool",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct CakepieReader.TokenIdInfo[]",
+            "name": "userStakedTokenIdsInfo",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isApprovedStake",
+                "type": "bool"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "token0",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "token1",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickLower",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickUpper",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside0LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside1LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed0",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed1",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "boostLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "boostMultiplier",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.TokenIdPosition",
+                "name": "position",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken0",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken1",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.EarnedFeeInfo",
+                "name": "earnedFeeInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "address",
+                "name": "pool",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct CakepieReader.TokenIdInfo[]",
+            "name": "userAvailableTokenIdsInfo",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isApprovedStake",
+                "type": "bool"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "token0",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "token1",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint24",
+                    "name": "fee",
+                    "type": "uint24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickLower",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tickUpper",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "liquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside0LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeGrowthInside1LastX128",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed0",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "tokensOwed1",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint128",
+                    "name": "boostLiquidity",
+                    "type": "uint128"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "boostMultiplier",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.TokenIdPosition",
+                "name": "position",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken0",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "feeEarnedtoken1",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.EarnedFeeInfo",
+                "name": "earnedFeeInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "address",
+                "name": "pool",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct CakepieReader.TokenIdInfo[]",
+            "name": "allStakedTokenIdsInfo",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "totalAllocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "latestPeriodCakePerSecond",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.MasterChefV3Info",
+            "name": "masterChefV3Info",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "userCakeBal",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "userCakeConvertAllowance",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "userTotalLocked",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "userAmountInCoolDown",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "startTime",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "endTime",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amountInCoolDown",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "expectedPenaltyAmount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amountToUser",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.VlCakepieUserUnlocking[]",
+                "name": "userUnlockingSchedule",
+                "type": "tuple[]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalPenalty",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "nextAvailableUnlockSlot",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isFull",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.VlCakepieLockInfo",
+            "name": "userMCakeSVInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "userMCakeLockAllowance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepieInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "locker",
+        "type": "address"
+      }
+    ],
+    "name": "getCakepieLockInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "userTotalLocked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "userAmountInCoolDown",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "startTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amountInCoolDown",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "expectedPenaltyAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amountToUser",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.VlCakepieUserUnlocking[]",
+            "name": "userUnlockingSchedule",
+            "type": "tuple[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalPenalty",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nextAvailableUnlockSlot",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isFull",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct CakepieReader.VlCakepieLockInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "poolId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getCakepiePoolInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "name": "getERC20TokenInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "decimals",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isNative",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct CakepieReader.ERC20TokenInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "poolAddr",
+        "type": "address"
+      }
+    ],
+    "name": "getMCakePooInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getRewardInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "pendingCakepie",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "bonusTokenAddresses",
+            "type": "address[]"
+          },
+          {
+            "internalType": "string[]",
+            "name": "bonusTokenSymbols",
+            "type": "string[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "pendingBonusRewards",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "pendingBonusDecimals",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "masterChefV3PendingCakepie",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.RewardInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "pool",
+        "type": "tuple"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getV2LikeAccountInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pendingCakepie",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address[]",
+                "name": "bonusTokenAddresses",
+                "type": "address[]"
+              },
+              {
+                "internalType": "string[]",
+                "name": "bonusTokenSymbols",
+                "type": "string[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "pendingBonusRewards",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "pendingBonusDecimals",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "masterChefV3PendingCakepie",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.RewardInfo",
+            "name": "rewardInfo",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "balance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakingAllowance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.V2LikeAccountInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "v3Liquidity",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isAmount0",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isNative",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct IPancakeStakingReader.PancakeStakingPoolInfo",
+        "name": "V2LpLikepoolInfo",
+        "type": "tuple"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getV2LikePoolInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "pool",
+        "type": "tuple"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getV3AccountInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "token0Balance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "token1Balance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "token0V3HelperAllowance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "token1V3HelperAllowance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.V3AccountInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "depositToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getV3DepositInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "balance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakingAllowance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.DepositInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "v3Liquidity",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isAmount0",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isNative",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct IPancakeStakingReader.PancakeStakingPoolInfo",
+        "name": "V3poolInfo",
+        "type": "tuple"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getV3PoolInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "poolId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "depositToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "depositTokenBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "receiptToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastRewardTimestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "CKPemission",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalStaked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "helper",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "rewarder",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolType",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastHarvestTime",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "decimals",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "isNative",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.ERC20TokenInfo",
+            "name": "depositTokenInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "pendingCakepie",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "address[]",
+                    "name": "bonusTokenAddresses",
+                    "type": "address[]"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "bonusTokenSymbols",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusRewards",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256[]",
+                    "name": "pendingBonusDecimals",
+                    "type": "uint256[]"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "masterChefV3PendingCakepie",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct CakepieReader.RewardInfo",
+                "name": "rewardInfo",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakedAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stakingAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V2LikeAccountInfo",
+            "name": "accountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "token0Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1Balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token0V3HelperAllowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "token1V3HelperAllowance",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3AccountInfo",
+            "name": "v3AccountInfo",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "pid",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token0",
+                "type": "tuple"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "address",
+                    "name": "tokenAddress",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "symbol",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "isNative",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.ERC20TokenInfo",
+                "name": "token1",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalBoostLiquidity",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allocPoint",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "v3Pool",
+                "type": "address"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint160",
+                    "name": "sqrtPriceX96",
+                    "type": "uint160"
+                  },
+                  {
+                    "internalType": "int24",
+                    "name": "tick",
+                    "type": "int24"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationIndex",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinality",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint16",
+                    "name": "observationCardinalityNext",
+                    "type": "uint16"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "feeProtocol",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "unlocked",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct CakepieReader.V3PoolSlot0",
+                "name": "slot0",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint24",
+                "name": "fee",
+                "type": "uint24"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "address",
+                "name": "lmPool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "lmLiquidity",
+                "type": "uint128"
+              },
+              {
+                "internalType": "bool",
+                "name": "farmCanBoost",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct CakepieReader.V3PoolInfo",
+            "name": "v3PoolInfo",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct CakepieReader.CakepiePool",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "cakeRewardAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getV3Reward",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "pendingCakepie",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "bonusTokenAddresses",
+            "type": "address[]"
+          },
+          {
+            "internalType": "string[]",
+            "name": "bonusTokenSymbols",
+            "type": "string[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "pendingBonusRewards",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "pendingBonusDecimals",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "masterChefV3PendingCakepie",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.RewardInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "mCake",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "mCakeConvertor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "mCakeSV",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "masterCakepie",
+    "outputs": [
+      {
+        "internalType": "contract IMasterCakepieReader",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "masterChefV3",
+    "outputs": [
+      {
+        "internalType": "contract IMasterChefV3",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nonFungiblePositionManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pancakeAMLHelper",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pancakeStaking",
+    "outputs": [
+      {
+        "internalType": "contract IPancakeStakingReader",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pancakeV2LPHelper",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pancakeV3Helper",
+    "outputs": [
+      {
+        "internalType": "contract IPancakeV3HelperReader",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "token0",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "token1",
+            "type": "address"
+          },
+          {
+            "internalType": "uint24",
+            "name": "fee",
+            "type": "uint24"
+          },
+          {
+            "internalType": "int24",
+            "name": "tickLower",
+            "type": "int24"
+          },
+          {
+            "internalType": "int24",
+            "name": "tickUpper",
+            "type": "int24"
+          },
+          {
+            "internalType": "uint128",
+            "name": "liquidity",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint256",
+            "name": "feeGrowthInside0LastX128",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "feeGrowthInside1LastX128",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint128",
+            "name": "tokensOwed0",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint128",
+            "name": "tokensOwed1",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint128",
+            "name": "boostLiquidity",
+            "type": "uint128"
+          },
+          {
+            "internalType": "uint256",
+            "name": "boostMultiplier",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct CakepieReader.TokenIdPosition",
+        "name": "position",
+        "type": "tuple"
+      }
+    ],
+    "name": "positionToPool",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "rewardDistributor",
+    "outputs": [
+      {
+        "internalType": "contract IRewardDistributor",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_mCakeSV",
+        "type": "address"
+      }
+    ],
+    "name": "setMCakeSV",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenToPool",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalLpFee",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "v3FARM_BOOSTER",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "v3Factory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
