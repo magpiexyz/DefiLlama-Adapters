@@ -2,7 +2,7 @@
 // const sdk = require('@defillama/sdk')
 // const { staking } = require('../helper/staking')
 // const PancakePool = require("./abis/pancakeV3Pool.json")
-// const pancakesdk  = require("@pancakeswap/v3-sdk");
+const pancakesdk  = require("@pancakeswap/v3-sdk");
 const fetchAllTokenPrice = require('./getTokenPrice.js');
 const CakepieReaderAbi = require("./abis/CakepieReader.json");
 const config = require("./config")
@@ -99,26 +99,26 @@ async function fetchTVLFromSubgraph(
         if (Number(userPosition.liquidity) === 0) {
           continue;
         }
-        // const pos = new pancakesdk.Position({
-        //   pool: pool.v3PoolInfo.v3SDKPool,
-        //   tickLower: Number(userPosition.tickLower.tickIdx),
-        //   tickUpper: Number(userPosition.tickUpper.tickIdx),
-        //   liquidity: ethers.BigNumber.from(userPosition.liquidity).toBigInt(),
-        // });
+        const pos = new pancakesdk.Position({
+          pool: pool.v3PoolInfo.v3SDKPool,
+          tickLower: Number(userPosition.tickLower.tickIdx),
+          tickUpper: Number(userPosition.tickUpper.tickIdx),
+          liquidity: ethers.BigNumber.from(userPosition.liquidity).toBigInt(),
+        });
 
-        // const token0Amount = ethers.utils.parseUnits(
-        //   pos.amount0.toFixed(),
-        //   pool.v3PoolInfo.token0.decimals
-        // );
-        // const token1Amount = ethers.utils.parseUnits(
-        //   pos.amount1.toFixed(),
-        //   pool.v3PoolInfo.token0.decimals
-        // );
-        // const token0Price =
-        //   TokenPrice[pool.v3PoolInfo.token0.symbol.toUpperCase()];
-        // const token1Price =
-        //   TokenPrice[pool.v3PoolInfo.token1.symbol.toUpperCase()];
-        // if (token0Price && token1Price) {
+        const token0Amount = ethers.utils.parseUnits(
+          pos.amount0.toFixed(),
+          pool.v3PoolInfo.token0.decimals
+        );
+        const token1Amount = ethers.utils.parseUnits(
+          pos.amount1.toFixed(),
+          pool.v3PoolInfo.token0.decimals
+        );
+        const token0Price =
+          TokenPrice[pool.v3PoolInfo.token0.symbol.toUpperCase()];
+        const token1Price =
+          TokenPrice[pool.v3PoolInfo.token1.symbol.toUpperCase()];
+        if (token0Price && token1Price) {
           tvl =
             tvl +
             token0Price *
@@ -135,7 +135,7 @@ async function fetchTVLFromSubgraph(
                 pool.v3PoolInfo.token1.decimals
               )
             );
-        // }
+        }
       }
     }
   }
