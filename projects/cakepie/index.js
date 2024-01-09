@@ -36,7 +36,7 @@ const getAllTokenPrice = async () => {
 
 async function fetchTVLFromSubgraph(
   pancakeStaking,
-  poolAddress
+  pool
 ) {
   const TokenPrice = await getAllTokenPrice();
   const response = await fetch(
@@ -51,7 +51,7 @@ async function fetchTVLFromSubgraph(
       {
         userPositions(
           first: 1000,
-          where: {user_: {address: "${pancakeStaking.toLowerCase()}"}, pool_: {v3Pool: "${poolAddress.toLowerCase()}"},  isStaked: true}
+          where: {user_: {address: "${pancakeStaking.toLowerCase()}"}, pool_: {v3Pool: "${pool.poolAddress.toLowerCase()}"},  isStaked: true}
         ) {
           tickLower
           tickUpper
@@ -117,10 +117,12 @@ async function fetchTVLFromSubgraph(
           continue;
         }
         const pos = new pancakesdk.Position({
-          pool: pool.v3PoolInfo.v3SDKPool,
+          // pool: pool.v3PoolInfo.v3SDKPool,
+          pool: pool,
           tickLower: Number(userPosition.tickLower.tickIdx),
           tickUpper: Number(userPosition.tickUpper.tickIdx),
-          liquidity: ethers.BigNumber.from(userPosition.liquidity).toBigInt(),
+          liquidity: ethers.getBigInt(userPosition.liquidity),
+          // liquidity: ethers.BigNumber.from(userPosition.liquidity).toBigInt(),
         });
 
         // const token0 = getERC20TokenInfo(pool)
@@ -255,13 +257,12 @@ async function getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper,v3
       pool = await getV2LikePoolInfo(poolsInfo[i], PancakeStaking);
     }
     pools.push(pool);
-    await fetchTVLFromSubgraph(PancakeStaking, poolsAdd[i], poolsInfo[i])
+    await fetchTVLFromSubgraph(PancakeStaking, pool)
   }
   return pools
 }
 
 async function tvl(timestamp, block, chainBlocks, { api }) {
-  console.log("kkkk")
   const { PancakeStaking, CakepieReader } = config[api.chain];
   WETHToken = await api.call({ abi: CakepieReaderAbi.weth, target: CakepieReader })
   const masterChefV3 = await api.call({ abi: CakepieReaderAbi.masterChefv3, target: CakepieReader })
