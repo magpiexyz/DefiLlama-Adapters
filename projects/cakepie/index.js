@@ -5,8 +5,10 @@ const pancakesdk = require("@pancakeswap/v3-sdk");
 const pancakev1Sdk = require("@pancakeswap/sdk");
 const getNativeToken = require('./chainData.js');
 const CakepieReaderAbi = require("./abis/CakepieReader.json");
+const MasterCakepieAbi = require("./abis/MasterCakepie.json");
 const config = require("./config")
-const _ = require("lodash")
+const _ = require("lodash");
+const { ADDRESS_ZERO } = require("@pancakeswap/v3-sdk");
 
 var WETHToken = "";
 var balances = {};
@@ -259,12 +261,18 @@ async function getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper, v
 }
 
 async function tvl(timestamp, block, chainBlocks, { api }) {
-  const { PancakeStaking, CakepieReader } = config[api.chain];
+  const { PancakeStaking, CakepieReader, MasterCakepieAddress, CakeAddress } = config[api.chain];
   WETHToken = await api.call({ abi: CakepieReaderAbi.weth, target: CakepieReader })
   const masterChefV3 = await api.call({ abi: CakepieReaderAbi.masterChefv3, target: CakepieReader })
   const pancakeV3Helper = await api.call({ abi: CakepieReaderAbi.pancakeV3Helper, target: CakepieReader })
   const v3FARM_BOOSTER = await api.call({ abi: CakepieReaderAbi.v3FARM_BOOSTER, target: CakepieReader })
+  const mCake = await api.call({ abi: CakepieReaderAbi.mCake, target: CakepieReader })
+  const mCakeSV = await api.call({ abi: CakepieReaderAbi.mCakeSV, target: CakepieReader })
   await getPoolInfo(api, PancakeStaking, masterChefV3, pancakeV3Helper, v3FARM_BOOSTER);
+  const mCakePool = await api.call({ abi: MasterCakepieAbi.tokenToPoolInfo, target: MasterCakepieAddress, params :[mCake] })
+  sdk.util.sumSingleBalance(balances, CakeAddress, mCakePool.totalStaked, api.chain);
+  const mCakeSVPool = await api.call({ abi: MasterCakepieAbi.tokenToPoolInfo, target: MasterCakepieAddress, params:[mCakeSV] })
+  sdk.util.sumSingleBalance(balances, CakeAddress, mCakeSVPool.totalStaked, api.chain);
   return balances
 }
 
